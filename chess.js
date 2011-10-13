@@ -111,6 +111,15 @@ function is_rook_valid_move(board, x, y, tx, ty) {
 }
 
 function is_knight_valid_move(board, x, y, tx, ty) {
+	/* Make sure final position is not on same color. */
+	if (piece_color(board, x, y) == piece_color(board, tx, ty))
+		return false;
+
+	/* Check for L shaped move. */
+	if ((Math.abs(tx - x) == 2 && Math.abs(ty - y) == 1) ||
+	    (Math.abs(tx - x) == 1 && Math.abs(ty - y) == 2))
+		return true;
+
 	return false;
 }
 
