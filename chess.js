@@ -82,7 +82,32 @@ function is_pawn_valid_move(board, x, y, tx, ty) {
 }
 
 function is_rook_valid_move(board, x, y, tx, ty) {
-	return false;
+	var dx = tx - x;
+	var dy = ty - y;
+
+	/* Check for horizontal or vertical movement. */
+	if (dx != 0 && dy != 0)
+		return false;
+
+	if (dx != 0) {
+		/* Vertical. */
+		dx /= Math.abs(dx);
+		for (var cx = x + dx; cx != tx; cx += dx)
+			if (is_piece(board, cx, y))
+				return false;
+	} else {
+		/* Horizontal. */
+		dy /= Math.abs(dy);
+		for (var cy = y + dy; cy != ty; cy += dy)
+			if (is_piece(board, x, cy))
+				return false;
+	}
+
+	/* Make sure final position is not on same color. */
+	if (piece_color(board, x, y) == piece_color(board, tx, ty))
+		return false;
+
+	return true;
 }
 
 function is_knight_valid_move(board, x, y, tx, ty) {

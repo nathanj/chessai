@@ -75,6 +75,38 @@ assert(i++, is_valid_move(board, 4, 3, 5, 3) == true);
 assert(i++, is_valid_move(board, 4, 3, 5, 2) == true);
 assert(i++, is_valid_move(board, 4, 3, 5, 4) == false);
 
+var board = [
+      /*  Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7 */
+/* X0 */ ['r','n','b','k','q','b',' ','r'],
+/* X1 */ ['p','p','p','p','p','p','p','p'],
+/* X2 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+/* X3 */ [' ','R',' ',' ','P',' ','n',' '],
+/* X4 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+/* X5 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+/* X6 */ ['P','P','P','P',' ','P','P','P'],
+/* X7 */ [' ','N','B','Q','K','B','N','R'],
+]
+
+assert(i++, is_valid_move(board, 3, 1, 0, 1) == false);
+assert(i++, is_valid_move(board, 3, 1, 1, 1) == true);
+assert(i++, is_valid_move(board, 3, 1, 2, 1) == true);
+assert(i++, is_valid_move(board, 3, 1, 4, 1) == true);
+assert(i++, is_valid_move(board, 3, 1, 5, 1) == true);
+assert(i++, is_valid_move(board, 3, 1, 6, 1) == false);
+assert(i++, is_valid_move(board, 3, 1, 7, 1) == false);
+
+assert(i++, is_valid_move(board, 3, 1, 3, 0) == true);
+assert(i++, is_valid_move(board, 3, 1, 3, 2) == true);
+assert(i++, is_valid_move(board, 3, 1, 3, 3) == true);
+assert(i++, is_valid_move(board, 3, 1, 3, 4) == false);
+assert(i++, is_valid_move(board, 3, 1, 3, 5) == false);
+assert(i++, is_valid_move(board, 3, 1, 3, 6) == false);
+assert(i++, is_valid_move(board, 3, 1, 3, 7) == false);
+
+assert(i++, is_valid_move(board, 3, 1, 2, 0) == false);
+assert(i++, is_valid_move(board, 3, 1, 2, 2) == false);
+assert(i++, is_valid_move(board, 3, 1, 4, 0) == false);
+assert(i++, is_valid_move(board, 3, 1, 4, 2) == false);
 
 
 document.write(passed + " passed, " + failed + " failed.<br/>");
