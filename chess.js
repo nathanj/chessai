@@ -14,6 +14,7 @@ var board = [
 
 var WHITE = 0
 var BLACK = 1
+var EMPTY = -1
 
 var valid_move_functions = new Array();
 valid_move_functions['p'] = is_pawn_valid_move;
@@ -32,17 +33,19 @@ function is_valid_move(board, x, y, tx, ty) {
 }
 
 function piece_color(board, x, y) {
+	if (board[x][y] == ' ')
+		return EMPTY;
 	if (board[x][y].toLowerCase() == board[x][y])
 		return BLACK;
 	return WHITE;
 }
 
 function is_open(board, x, y) {
-	return (board[x][y] == ' ');
+	return (piece_color(board, x, y) == EMPTY);
 }
 
 function is_piece(board, x, y) {
-	return (board[x][y] != ' ');
+	return (piece_color(board, x, y) != EMPTY);
 }
 
 function is_pawn_valid_move(board, x, y, tx, ty) {
@@ -147,7 +150,8 @@ function is_bishop_valid_move(board, x, y, tx, ty) {
 }
 
 function is_queen_valid_move(board, x, y, tx, ty) {
-	return false;
+	return (is_rook_valid_move(board, x, y, tx, ty) ||
+		is_bishop_valid_move(board, x, y, tx, ty));
 }
 
 function is_king_valid_move(x, y, tx, ty) {

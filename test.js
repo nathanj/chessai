@@ -180,3 +180,49 @@ assert(i++, is_valid_move(board, 3, 3, 3, 4) == false);
 assert(i++, is_valid_move(board, 3, 3, 2, 3) == false);
 end_test();
 
+var board = [
+      /*  Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7 */
+/* X0 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+/* X1 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+/* X2 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+/* X3 */ [' ',' ',' ','q',' ',' ',' ',' '],
+/* X4 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+/* X5 */ [' ','p',' ',' ',' ','P',' ',' '],
+/* X6 */ [' ',' ',' ','R',' ',' ',' ',' '],
+/* X7 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+]
+
+start_test('queen');
+assert(i++, is_valid_move(board, 3, 3, 0, 0) == true);
+assert(i++, is_valid_move(board, 3, 3, 1, 1) == true);
+assert(i++, is_valid_move(board, 3, 3, 2, 2) == true);
+assert(i++, is_valid_move(board, 3, 3, 4, 4) == true);
+assert(i++, is_valid_move(board, 3, 3, 5, 5) == true);
+assert(i++, is_valid_move(board, 3, 3, 6, 6) == false);
+assert(i++, is_valid_move(board, 3, 3, 7, 7) == false);
+
+assert(i++, is_valid_move(board, 3, 3, 6, 0) == false);
+assert(i++, is_valid_move(board, 3, 3, 5, 1) == false);
+assert(i++, is_valid_move(board, 3, 3, 4, 2) == true);
+assert(i++, is_valid_move(board, 3, 3, 2, 4) == true);
+assert(i++, is_valid_move(board, 3, 3, 1, 5) == true);
+assert(i++, is_valid_move(board, 3, 3, 0, 6) == true);
+
+assert(i++, is_valid_move(board, 3, 3, 3, 0) == true);
+assert(i++, is_valid_move(board, 3, 3, 3, 1) == true);
+assert(i++, is_valid_move(board, 3, 3, 3, 2) == true);
+assert(i++, is_valid_move(board, 3, 3, 3, 4) == true);
+assert(i++, is_valid_move(board, 3, 3, 3, 5) == true);
+assert(i++, is_valid_move(board, 3, 3, 3, 6) == true);
+assert(i++, is_valid_move(board, 3, 3, 3, 7) == true);
+
+assert(i++, is_valid_move(board, 3, 3, 0, 3) == true);
+assert(i++, is_valid_move(board, 3, 3, 1, 3) == true);
+assert(i++, is_valid_move(board, 3, 3, 2, 3) == true);
+assert(i++, is_valid_move(board, 3, 3, 4, 3) == true);
+assert(i++, is_valid_move(board, 3, 3, 5, 3) == true);
+assert(i++, is_valid_move(board, 3, 3, 6, 3) == true);
+assert(i++, is_valid_move(board, 3, 3, 7, 3) == false);
+
+end_test();
+
