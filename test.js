@@ -122,6 +122,8 @@ assert(i++, is_valid_move(board, 3, 1, 2, 0) == false);
 assert(i++, is_valid_move(board, 3, 1, 2, 2) == false);
 assert(i++, is_valid_move(board, 3, 1, 4, 0) == false);
 assert(i++, is_valid_move(board, 3, 1, 4, 2) == false);
+
+assert(i++, list_moves(board, 3, 1).length == 7);
 end_test();
 
 var board = [
@@ -145,6 +147,8 @@ assert(i++, is_valid_move(board, 3, 3, 1, 4) == true);
 assert(i++, is_valid_move(board, 3, 3, 2, 5) == true);
 assert(i++, is_valid_move(board, 3, 3, 4, 5) == true);
 assert(i++, is_valid_move(board, 3, 3, 5, 4) == false);
+
+assert(i++, list_moves(board, 3, 3).length == 7);
 end_test();
 
 var board = [
@@ -178,6 +182,8 @@ assert(i++, is_valid_move(board, 3, 3, 0, 6) == true);
 assert(i++, is_valid_move(board, 3, 3, 3, 2) == false);
 assert(i++, is_valid_move(board, 3, 3, 3, 4) == false);
 assert(i++, is_valid_move(board, 3, 3, 2, 3) == false);
+
+assert(i++, list_moves(board, 3, 3).length == 9);
 end_test();
 
 var board = [
@@ -223,6 +229,8 @@ assert(i++, is_valid_move(board, 3, 3, 4, 3) == true);
 assert(i++, is_valid_move(board, 3, 3, 5, 3) == true);
 assert(i++, is_valid_move(board, 3, 3, 6, 3) == true);
 assert(i++, is_valid_move(board, 3, 3, 7, 3) == false);
+
+assert(i++, list_moves(board, 3, 3).length == 22);
 end_test();
 
 var board = [
@@ -246,5 +254,7 @@ assert(i++, is_valid_move(board, 3, 3, 3, 4) == true);
 assert(i++, is_valid_move(board, 3, 3, 4, 2) == true);
 assert(i++, is_valid_move(board, 3, 3, 4, 3) == false);
 assert(i++, is_valid_move(board, 3, 3, 4, 4) == true);
+
+assert(i++, list_moves(board, 3, 3).length == 7);
 end_test();
 
