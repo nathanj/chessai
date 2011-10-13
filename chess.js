@@ -89,6 +89,7 @@ function is_rook_valid_move(board, x, y, tx, ty) {
 	if (dx != 0 && dy != 0)
 		return false;
 
+	/* Make sure no pieces are in the way. */
 	if (dx != 0) {
 		/* Vertical. */
 		dx /= Math.abs(dx);
@@ -124,7 +125,25 @@ function is_knight_valid_move(board, x, y, tx, ty) {
 }
 
 function is_bishop_valid_move(board, x, y, tx, ty) {
-	return false;
+	var dx = tx - x;
+	var dy = ty - y;
+
+	/* Check for diagonal movement. */
+	if (Math.abs(dx) != Math.abs(dy))
+		return false;
+
+	/* Make sure no pieces are in the way. */
+	dx /= Math.abs(dx);
+	dy /= Math.abs(dy);
+	for (var cx = x + dx, cy = y + dy; cx != tx; cx += dx, cy += dy)
+		if (is_piece(board, cx, cy))
+			return false;
+
+	/* Make sure final position is not on same color. */
+	if (piece_color(board, x, y) == piece_color(board, tx, ty))
+		return false;
+
+	return true;
 }
 
 function is_queen_valid_move(board, x, y, tx, ty) {
