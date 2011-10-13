@@ -223,6 +223,28 @@ assert(i++, is_valid_move(board, 3, 3, 4, 3) == true);
 assert(i++, is_valid_move(board, 3, 3, 5, 3) == true);
 assert(i++, is_valid_move(board, 3, 3, 6, 3) == true);
 assert(i++, is_valid_move(board, 3, 3, 7, 3) == false);
+end_test();
 
+var board = [
+      /*  Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7 */
+/* X0 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+/* X1 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+/* X2 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+/* X3 */ [' ',' ',' ','k',' ',' ',' ',' '],
+/* X4 */ [' ',' ',' ','r',' ',' ',' ',' '],
+/* X5 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+/* X6 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+/* X7 */ [' ',' ',' ',' ',' ',' ',' ',' '],
+]
+
+start_test('king');
+assert(i++, is_valid_move(board, 3, 3, 2, 2) == true);
+assert(i++, is_valid_move(board, 3, 3, 2, 3) == true);
+assert(i++, is_valid_move(board, 3, 3, 2, 4) == true);
+assert(i++, is_valid_move(board, 3, 3, 3, 2) == true);
+assert(i++, is_valid_move(board, 3, 3, 3, 4) == true);
+assert(i++, is_valid_move(board, 3, 3, 4, 2) == true);
+assert(i++, is_valid_move(board, 3, 3, 4, 3) == false);
+assert(i++, is_valid_move(board, 3, 3, 4, 4) == true);
 end_test();
 

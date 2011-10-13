@@ -154,7 +154,18 @@ function is_queen_valid_move(board, x, y, tx, ty) {
 		is_bishop_valid_move(board, x, y, tx, ty));
 }
 
-function is_king_valid_move(x, y, tx, ty) {
-	return false;
+function is_king_valid_move(board, x, y, tx, ty) {
+	var dx = tx - x;
+	var dy = ty - y;
+
+	/* Make sure only moving one square. */
+	if (Math.abs(dx) > 1 || Math.abs(dy) > 1)
+		return false;
+
+	/* Make sure final position is not on same color. */
+	if (piece_color(board, x, y) == piece_color(board, tx, ty))
+		return false;
+
+	return true;
 }
 
