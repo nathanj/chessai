@@ -2,9 +2,22 @@
 var i = 1;
 var failed = 0;
 var passed = 0;
+var test = '';
 
+function start_test(name) {
+	test = name;
+	i = 1;
+	failed = 0;
+	passed = 0;
+}
+
+function end_test() {
+	document.write(test + ' - ');
+	document.write(passed + " passed, " + failed + " failed.<br/>");
+}
 function assert(name, x) {
 	if (!x) {
+		document.write(test + " - ");
 		document.write("TEST ");
 		document.write(name);
 		document.write(" FAILED<br/>");
@@ -27,7 +40,7 @@ var board = [
 /* X7 */ ['R','N','B','Q','K','B','N','R'],
 ]
 
-/* White pawn. */
+start_test('white pawn');
 assert(i++, is_valid_move(board, 6, 0, 5, 0) == false);
 assert(i++, is_valid_move(board, 6, 0, 4, 0) == false);
 assert(i++, is_valid_move(board, 6, 0, 5, 1) == false);
@@ -54,9 +67,9 @@ assert(i++, is_valid_move(board, 6, 5, 4, 4) == false);
 
 assert(i++, is_valid_move(board, 6, 6, 5, 6) == false);
 assert(i++, is_valid_move(board, 6, 6, 4, 6) == false);
+end_test();
 
-/* Black pawn. */
-
+start_test('black pawn');
 assert(i++, is_valid_move(board, 5, 0, 6, 0) == false);
 assert(i++, is_valid_move(board, 5, 0, 6, 1) == true);
 assert(i++, is_valid_move(board, 5, 0, 7, 1) == false);
@@ -74,6 +87,7 @@ assert(i++, is_valid_move(board, 4, 2, 7, 2) == false);
 assert(i++, is_valid_move(board, 4, 3, 5, 3) == true);
 assert(i++, is_valid_move(board, 4, 3, 5, 2) == true);
 assert(i++, is_valid_move(board, 4, 3, 5, 4) == false);
+end_test();
 
 var board = [
       /*  Y0  Y1  Y2  Y3  Y4  Y5  Y6  Y7 */
@@ -87,6 +101,7 @@ var board = [
 /* X7 */ [' ','N','B','Q','K','B','N','R'],
 ]
 
+start_test('rook');
 assert(i++, is_valid_move(board, 3, 1, 0, 1) == false);
 assert(i++, is_valid_move(board, 3, 1, 1, 1) == true);
 assert(i++, is_valid_move(board, 3, 1, 2, 1) == true);
@@ -107,6 +122,6 @@ assert(i++, is_valid_move(board, 3, 1, 2, 0) == false);
 assert(i++, is_valid_move(board, 3, 1, 2, 2) == false);
 assert(i++, is_valid_move(board, 3, 1, 4, 0) == false);
 assert(i++, is_valid_move(board, 3, 1, 4, 2) == false);
+end_test();
 
 
-document.write(passed + " passed, " + failed + " failed.<br/>");
